@@ -1,7 +1,7 @@
 const ClassName = require('module-name');
 
 var myExp = "x.test > 55";
-var myObject = { x: 5 };
+var myObject = { test: 5 };
 
 var func = ClassName.compile(myExp);
 var result = func.test(myObject);
@@ -9,19 +9,19 @@ var result = func.test(myObject);
 //--------------------------------------------------
 
 //on base proto
-biggenThan={
+biggenThan = {
     type: 'operator',
     token: '>', //on debug only
     ref: function(x, y){ return x > b; }
 }
 
-someConst={
+someConst = {
     type: 'const',
     token: '5', //on debug only
     value: 5
 }
 
-accessor={
+accessor = {
     type: 'access',
     token: 'x.test', //on debug only
     access: function(){ return x['test']; }
