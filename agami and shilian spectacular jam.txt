@@ -1,0 +1,67 @@
+Option for object transformation
+
+input => ipnut.name + this
+
+
+var data = 6
+var compiled = Class.compile('this > 3'); // 'this > 3' will be transformed into 'this => this > 3'
+var isBiggerThan3 = compiled.test(data);
+
+
+Class
+    .create(rootExp)                           
+    .addFunction(exp, alias1?, alias2?...)
+    .addConst(any, alias1?, alias2?...)
+    .compile(opts?);
+
+Class.compile(singleExp, opts?)
+
+
+
+
+
+arr.map( this => (this.name + this.kaka) )
+
+
+{
+
+    x: 4
+
+}
+
+
+this.x
+
+
+c: a => b;
+d: e => f;
+x => y
+
+
+
+x => y
+
+
+
+
+
+{
+    mainFunction: rootExp,
+    functions: [exp],
+    consts: []
+}
+
+
+
+
+
+compiled
+
+
+
+input1, input2 => ...
+
+
+
+
+
