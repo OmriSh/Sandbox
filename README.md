@@ -49,7 +49,9 @@ var result = chain(dateObject);
 ```
 
 ## Syntax
-| Syntax | JavaScript |
-| ------ | ------ |
-| x => x > 3 | (x) => { return x > 3; }  | 
-| x{years += 1000} | (x)=>{ x=Object.create(x); x.years+=1000; return x; } |
+| Syntax | JavaScript | Description |
+| ------ | ------ | ------ |
+| x => x > 3 | (x) => { return x > 3; }  | predicate | 
+| x{years += 1000} | (x)=>{ x=Object.create(x); x.years+=1000; return x; } | object transformation (original object remains intact)  |
+| x => x + 5 | (x)=>{ return x+5; } | function, return value |
+| x => { value: x } | (x)=>{ return { value: x }; } | function, return new object |
