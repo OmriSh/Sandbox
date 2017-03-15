@@ -18,7 +18,7 @@ var result = isBiggerThanThree(5);
 var JSExpresion = require('js-expression');
 var builder = new JSExpresion();
 
-var formatDate = builder.create('x => (x.day + '/' + x.month + '/' + x.year )');
+var formatDate = builder.create("x => (x.day + '/' + x.month + '/' + x.year )");
 
 var obj = {
     day: 12,
