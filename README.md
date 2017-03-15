@@ -52,4 +52,4 @@ var result = chain(dateObject);
 | Syntax | JavaScript |
 | ------ | ------ |
 | x => x > 3 | (x) => { return x > 3; }  | 
-| x{years += 1000} | (x)=>{ x.years+=1000; return x; } |
+| x{years += 1000} | (x)=>{ x=Object.create(x); x.years+=1000; return x; } |
