@@ -35,7 +35,7 @@ var result = formatDate(dateObject);
 var JSExpresion = require('js-expression');
 var builder = new JSExpresion();
 
-var addThousandYears = builder.create("x(x.years += 1000)");
+var addThousandYears = builder.create("x{years += 1000}");
 var formatDate = builder.create("x => (x.day + '/' + x.month + '/' + x.year )");
 
 var dateObject = {
@@ -47,3 +47,9 @@ var chain = addThousandYears.chain(formatDate);
 var result = chain(dateObject);
 //result = '12/12/3012'
 ```
+
+## Syntax
+| Syntax | JavaScript |
+| ------ | ------ |
+| x => x > 3 | (x) => { return x > 3; }  | 
+| x{years += 1000} | (x)=>{ x.years+=1000; return x; } |
