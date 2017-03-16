@@ -26,7 +26,7 @@ var dateObject = {
     year: 2012
 };
 
-var result = formatDate(dateObject);
+var result = formatDate.exec(dateObject);
 // result = '12/12/2012'
 ```
 
