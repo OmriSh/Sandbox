@@ -65,3 +65,45 @@ input1, input2 => ...
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Should we implement dynamic scopes? (meaning the parent scope is the scope which the expression invoked from)
+
+var builder = new JSExpression();
+var abs = builder
+    .create('x => isXPositive() ? x : -1')
+    .addFunction('isThisPositive: x > 0');
+
+console.log(abs.exec(-5));
+// 5
