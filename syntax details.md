@@ -6,7 +6,7 @@
 | - | - | - |
 | ` (exp1) ` | ` (exp1) ` | 1 |
 | ` func(exp1) ` | ` func(exp1) ` | 1 |
-| ` obj{exp} ` | ` (() => { clone = Object.create(obj); exp; return clone; } )() ` | 1 |
+| ` obj{exp} ` | ` (() => { cloned = clone(obj); exp; return cloned; } )() ` | 1 |
 | ` obj.prop ` | ` obj.prop ` | 2 |
 | ` exp1 + exp2 ` | ` exp1 + exp2 ` | 3 |
 | ` exp1 - exp2 ` | ` exp1 - exp2 ` | 3 |
