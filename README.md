@@ -71,7 +71,7 @@ var result = thousandYearsLater.exec(dateObject);
 | Syntax | JavaScript | Description |
 | ------ | ------ | ------ |
 | x => x > 3 | x => { return x > 3; }  | predicate | 
-| x{years += 1000} | x => { x = Object.create(x); x.years += 1000; return x; } | object transformation (original object remains intact)  |
-| x => x + 5 | x => { return x+5; } | function, return value |
+| x{years = years + 1000} | x => { x.years += 1000; return x; } | object transformation (original object remains intact)  |
+| x => x + 5 | x => { return x + 5; } | function, return value |
 | x => { value: x } | x => { return { value: x } } | function, return new object |
 | x => f(x) | x => { return f(x) } | function, referencing another expression |

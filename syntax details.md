@@ -1,18 +1,41 @@
 # Syntax Details
 
-## Operators
+## Atomic Expressions
 
-| JSExpression | Javascript | Precedence Level |
+| JSExpression | Precedence Level |
 | - | - | - |
-| ` (exp1) ` | ` (exp1) ` | 1 |
-| ` func(exp1) ` | ` func(exp1) ` | 1 |
-| ` obj{exp} ` | ` (() => { cloned = clone(obj); with (cloned) { exp }; return cloned; )() ` | 1 |
-| ` obj.prop ` | ` obj.prop ` | 2 |
-| ` exp1 + exp2 ` | ` exp1 + exp2 ` | 3 |
-| ` exp1 - exp2 ` | ` exp1 - exp2 ` | 3 |
-| ` exp1 * exp2 ` | ` exp1 * exp2 ` | 4 |
-| ` exp1 / exp2 ` | ` exp1 / exp2 ` | 4 |
-| ` condition ? exp1 : exp2 ` | ` condition ? exp1 : exp2 ` | 5 |
+| ` (exp1) ` | 1 |
+| ` func(exp1) ` | 1 |
+| ` returnedObj{assignment} ` | 1 |
+| ` obj.prop ` | 2 |
+| ` exp1 * exp2 ` | 3 |
+| ` exp1 / exp2 ` | 3 |
+| ` exp1 + exp2 ` | 4 |
+| ` exp1 - exp2 ` | 4 |
+| ` condition ? exp1 : exp2 ` | 5 |
+
+### The Modification Expression (` returnedObj{assignment} `)
+
+The Modification Expression used when we want to modify an existing object. It equivalent to something close to the following JavaScript clause:
+
+` ( () => { with(obj) {assignment}; return obj; } )() `
+
+The assignment will be made in a deeper scope with the returned object's properties directly accessible.
+The extending object will be returned as the expression value.
+
+For example:
+` addHour : time => time{hour++} ` will add one hour to the time argument and return it.
+
+### Assignments
+
+Assignments are available only inside a modification expression's brackets.
+The syntax is just like the standard JavaScript assignment, and it goes as following:
+
+` assignedObject = expression `
+
+The left side of the clause references a variable in the current scope.
+The right side can be any expression you would like.
+
 
 ## Expression Definition
 
@@ -49,7 +72,7 @@ The variables that are accessible by default are:
 2. Another expressions (can be added via `expression.addFunction(exp)` or by declaration with the current expression separated by `;`), referenced by their aliases;
 3. Consts (can be added by `expression.addConst('alias', obj)`).
 
-The modification operator (`obj{exp}`) creates another scope under the current.
+The modification expression (`obj{variable=expression}`) creates another scope under the current.
 The variables that are accessible in the new expression are:
 1. All the variables that are accessible in the parent scope;
 2. The properties of the modified object.
