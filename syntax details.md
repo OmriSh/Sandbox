@@ -91,7 +91,9 @@ For example:
         years: 1970
     };
     
-    console.log(addThousandYears.exec(date));
+    addThousandYears.exec(date);
+    
+    console.log(date);
     //  { days: 1, months: 1, years: 2970 }
 ```
 
