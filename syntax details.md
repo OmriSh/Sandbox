@@ -3,7 +3,7 @@
 ## Atomic Expressions
 
 | JSExpression | Precedence Level |
-| - | - | - |
+| - | - |
 | ` (exp1) ` | 1 |
 | ` func(exp1) ` | 1 |
 | ` returnedObj{assignment} ` | 1 |
