@@ -3,6 +3,7 @@
 SafeExpression is a library that gives you the ability to create, load and safely evaluate expressions as readable strings.
 
 ### Predicates
+
 ```JavaScript
 var SafeExpresion = require('safe-expression');
 var builder = new SafeExpresion();
@@ -36,8 +37,9 @@ var SafeExpresion = require('safe-expression');
 var builder = new SafeExpresion();
 
 var thousandYearsLater = builder
-    .create("format(x{years += addition})")
-    .addFunction("x => x.day + '/' + x.month + '/' + x.year", "format")
+    .create("x => format(addYears(x))")
+    .addFunction("addYears: x => { day: x.day, month: x.month; year: x.year + addition }")
+    .addFunction("format: x => x.day + '/' + x.month + '/' + x.year")
     .addConst(1000, "addition");
 
 var dateObject = {
